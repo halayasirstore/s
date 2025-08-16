@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="description" content="تفاصيل المنتج - متجر هلا ياسر">
+  <title>تفاصيل المنتج - هلا ياسر</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="logo" href="index.html">
+        <span class="logo-badge" aria-hidden="true">
+          <img src="https://i.imgur.com/uT3qEVr.png" alt="Logo هلا ياسر" style="width: 45px; height: 45px;">
+        </span>
+        <span>هلا ياســــــــر</span>
+      </a>
+      <div class="nav-actions">
+        <a href="cart.html" class="btn">
+          <i class="fas fa-shopping-cart"></i>
+          <span id="cartCount">0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+  <main class="container">
+    <div class="back-btn" id="backBtn">
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      العودة للمتجر
+    </div>
+    
+    <div class="product-details-container">
+      <div class="product-gallery">
+        <img id="mainProductImage" class="main-image" src="" alt="" loading="lazy">
+        <div class="thumbnails" id="productThumbnails"></div>
+      </div>
+      
+      <div>
+        <div class="customer-form">
+          <h3><i class="fas fa-user-circle"></i> معلومات الزبون</h3>
+          <div class="field">
+            <label for="custName">الإسم الكامل</label>
+            <input id="custName" placeholder="الإسم والكنية" />
+          </div>
+          <div class="field">
+            <label for="custPhone">رقم الهاتف</label>
+            <input id="custPhone" inputmode="numeric" placeholder="06xxxxxxxx" />
+          </div>
+          <div class="field">
+            <label for="custCity">المدينة</label>
+            <select id="custCity">
+              <option value="">إختر المدينة</option>
+              <option>الدار البيضاء</option>
+              <option>الرباط</option>
+              <option>طنجة</option>
+              <option>مراكش</option>
+              <option>فاس</option>
+              <option>أكادير</option>
+              <option>مكناس</option>
+              <option>وجدة</option>
+              <option>تطوان</option>
+              <option>أسفي</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="custAddress">العنوان</label>
+            <textarea id="custAddress" rows="2" placeholder="الحي، الزنقة، رقم الدار…"></textarea>
+          </div>
+          <div class="field">
+            <label for="custNote">ملاحظات</label>
+            <textarea id="custNote" rows="2" placeholder="أي تفاصيل إضافية"></textarea>
+          </div>
+        </div>
+        
+        <div class="product-info">
+          <span id="productBadge" class="product-badge"></span>
+          <h1 id="productTitle" class="product-title"></h1>
+          <div>
+            <span id="productOldPrice" class="product-old-price"></span>
+            <span id="productPrice" class="product-price"></span>
+          </div>
+          <p id="productDescription" class="product-description"></p>
+          
+          <div class="cart-status" id="cartStatus">
+            <i class="fas fa-shopping-cart"></i>
+            <span id="cartStatusText">المنتج غير موجود في السلة</span>
+          </div>
+          
+          <div class="details-actions">
+            <div class="qty-selector">
+              <button id="decreaseQty" aria-label="تقليل الكمية">
+                <i class="fas fa-minus"></i>
+              </button>
+              <span id="productQty">1</span>
+              <button id="increaseQty" aria-label="زيادة الكمية">
+                <i class="fas fa-plus"></i>
+              </button>
+            </div>
+            <button id="addToCartBtn" class="btn primary block">
+              <i class="fas fa-cart-plus"></i>
+              أضف إلى السلة
+            </button>
+            <button id="sendOrderBtn" class="btn success block" style="display: none;">
+              <i class="fas fa-paper-plane"></i>
+              إرسال الطلب
+            </button>
+            <button id="sendOrderWhatsAppBtn" class="btn whatsapp block">
+              <i class="fab fa-whatsapp"></i>
+              إرسال الطلب عبر واتساب
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <script src="product.js"></script>
+</body>
+</html>

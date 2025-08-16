@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="description" content="متجر هلا ياسر - منتجات عالية الجودة بأسعار مناسبة مع خدمة التوصيل في جميع أنحاء المغرب">
+  <title>هلا ياسر – متجر المنتجات</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="logo" href="index.html">
+        <span class="logo-badge" aria-hidden="true">
+          <img src="https://i.imgur.com/uT3qEVr.png" alt="Logo هلا ياسر" style="width: 45px; height: 45px;">
+        </span>
+        <span>هلا ياســــــــر</span>
+      </a>
+      <div class="nav-actions">
+        <a href="cart.html" class="btn">
+          <i class="fas fa-shopping-cart"></i>
+          <span id="cartCount">0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+  <main class="container">
+    <!-- Product Listing Page -->
+    <div id="productListing">
+      <!-- Hero -->
+      <section class="hero">
+        <div class="hero-card">
+          <div class="chip">
+            <i class="fas fa-truck"></i>
+            توصيل مجاني داخل المغرب • الدفع عند الإستلام
+          </div>
+          <h1>منتجات مختارة بجودة عالية وأسعار مناسبة</h1>
+          <p>إختر منتجك المفضل، أضفه للسلة، وأكمل الطلب بخطوات بسيطة. نخدمو جميع المدن المغربية.</p>
+          <div class="cta">
+            <a href="#shop" class="btn primary">
+              <i class="fas fa-shopping-bag"></i>
+              تسوق الآن
+            </a>
+            <a href="cart.html" class="btn">
+              <i class="fas fa-shopping-cart"></i>
+              سلة المشتريات
+            </a>
+          </div>
+        </div>
+        <div class="hero-banner">
+          <img alt="عرض المتجر" src="https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?q=80&w=1600&auto=format&fit=crop" loading="lazy"/>
+        </div>
+      </section>
+      <!-- Toolbar -->
+      <section class="toolbar" id="shop">
+        <div class="input" style="flex:2">
+          <i class="fas fa-search"></i>
+          <input id="searchInput" placeholder="إبحث عن منتج…" aria-label="بحث عن منتج" />
+        </div>
+        <div class="filters">
+          <button class="pill active" data-cat="all">الكل</button>
+          <button class="pill" data-cat="أحذية">أحذية</button>
+          <button class="pill" data-cat="إكسسوارات">إكسسوارات</button>
+          <button class="pill" data-cat="ملابس">ملابس</button>
+        </div>
+      </section>
+      <!-- Products Grid -->
+      <section class="grid" id="productsGrid"></section>
+      
+      <p class="muted" style="margin-top:16px" id="storeInfo">
+        <i class="fas fa-info-circle"></i> الدفع عند الإستلام • التوصيل 24-72 ساعة حسب المدينة
+      </p>
+    </div>
+    
+    <!-- Admin Panel -->
+    <div id="adminPanel" class="admin-panel">
+      <div class="admin-header">
+        <h2><i class="fas fa-lock"></i> لوحة تحكم المشرف</h2>
+        <div>
+          <button class="btn" id="logoutBtn">
+            <i class="fas fa-sign-out-alt"></i>
+            تسجيل الخروج
+          </button>
+        </div>
+      </div>
+      
+      <div class="admin-access-info">
+        <h3>معلومات الوصول للوحة التحكم</h3>
+        <p>للوصول إلى لوحة تحكم المشرف، أضف <code>?admin</code> إلى نهاية رابط المتجر</p>
+        <p>مثال: <code>https://yourstore.com?admin</code></p>
+      </div>
+      
+      <div class="admin-tabs">
+        <div class="admin-tab active" data-tab="dashboard">الرئيسية</div>
+        <div class="admin-tab" data-tab="products">المنتجات</div>
+        <div class="admin-tab" data-tab="add">إضافة منتج</div>
+      </div>
+      
+      <div id="adminDashboard" class="admin-content active">
+        <div class="stats-container">
+          <div class="stat-card">
+            <div class="stat-label">عدد المنتجات</div>
+            <div class="stat-value" id="totalProducts">0</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">الطلبات اليوم</div>
+            <div class="stat-value" id="todayOrders">0</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">الإيرادات</div>
+            <div class="stat-value" id="revenue">0 درهم</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">الزوار</div>
+            <div class="stat-value" id="visitors">0</div>
+          </div>
+        </div>
+        
+        <div class="admin-form">
+          <div class="form-title">إجراءات سريعة</div>
+          <div class="dashboard-actions">
+            <button class="btn primary" id="exportProducts">
+              <i class="fas fa-download"></i>
+              تصدير المنتجات
+            </button>
+            <button class="btn success" id="importProducts">
+              <i class="fas fa-upload"></i>
+              استيراد المنتجات
+            </button>
+            <button class="btn warning" id="backupData">
+              <i class="fas fa-database"></i>
+              نسخ احتياطي
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <div id="adminProducts" class="admin-content">
+        <div class="admin-search">
+          <div class="input">
+            <i class="fas fa-search"></i>
+            <input id="adminSearchInput" placeholder="بحث عن منتج..." />
+          </div>
+          <button class="btn primary" id="addNewProduct">
+            <i class="fas fa-plus"></i>
+            إضافة منتج
+          </button>
+        </div>
+        
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>الصورة</th>
+              <th>الاسم</th>
+              <th>الفئة</th>
+              <th>السعر</th>
+              <th>السعر القديم</th>
+              <th>الإجراءات</th>
+            </tr>
+          </thead>
+          <tbody id="adminProductsList"></tbody>
+        </table>
+      </div>
+      
+      <div id="adminAddProduct" class="admin-content">
+        <div class="admin-form">
+          <div class="form-title" id="formTitle">إضافة منتج جديد</div>
+          <div class="form-grid">
+            <div class="field">
+              <label for="adminName">اسم المنتج</label>
+              <input type="text" id="adminName" placeholder="اسم المنتج">
+            </div>
+            <div class="field">
+              <label for="adminCategory">الفئة</label>
+              <select id="adminCategory">
+                <option value="أحذية">أحذية</option>
+                <option value="إكسسوارات">إكسسوارات</option>
+                <option value="ملابس">ملابس</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="adminPrice">السعر (درهم)</label>
+              <input type="number" id="adminPrice" placeholder="السعر">
+            </div>
+            <div class="field">
+              <label for="adminOldPrice">السعر القديم (اختياري)</label>
+              <input type="number" id="adminOldPrice" placeholder="السعر القديم">
+            </div>
+            <div class="field">
+              <label for="adminBadge">علامة مميزة (اختياري)</label>
+              <input type="text" id="adminBadge" placeholder="مثل: الأكثر مبيعاً">
+            </div>
+            <div class="field" style="grid-column: 1 / -1;">
+              <label>صور المنتج</label>
+              <div class="image-uploader">
+                <input type="file" id="adminImageUpload" accept="image/*" multiple>
+                <div class="image-preview" id="imagePreview">
+                  <div class="image-preview-placeholder">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <div>اختر صورة أو اسحبها هنا</div>
+                  </div>
+                </div>
+              </div>
+              <div class="url-input-group">
+                <input type="text" id="adminImageUrl" placeholder="أو أدخل رابط الصورة" class="input">
+                <button class="btn primary" id="addImageUrlBtn">
+                  <i class="fas fa-plus"></i>
+                </button>
+              </div>
+              <div class="product-images-manager" id="productImagesManager"></div>
+            </div>
+            <div class="field" style="grid-column: 1 / -1;">
+              <label for="adminDesc">وصف المنتج</label>
+              <textarea id="adminDesc" rows="3" placeholder="وصف المنتج"></textarea>
+            </div>
+          </div>
+          <div style="margin-top:20px">
+            <button class="btn primary" id="saveProductBtn">
+              <i class="fas fa-save"></i>
+              حفظ المنتج
+            </button>
+            <button class="btn" id="cancelEditBtn" style="display:none;">
+              <i class="fas fa-times"></i>
+              إلغاء
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <footer class="footer">
+    <div class="container">
+      © <span id="year"></span> هلا ياسر – جميع الحقوق محفوظة • واتساب: 
+      <a href="https://wa.me/212600000000" target="_blank" rel="noopener">
+        <i class="fab fa-whatsapp"></i> +212 6 00 00 00 00
+      </a>
+    </div>
+  </footer>
+  
+  <!-- Login Modal -->
+  <div class="modal" id="loginModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>تسجيل دخول المشرف</h2>
+        <p>الرجاء إدخال اسم المستخدم وكلمة المرور للوصول إلى لوحة التحكم</p>
+      </div>
+      <div class="login-info">
+        <h3>معلومات الدخول الافتراضية</h3>
+        <p>اسم المستخدم: <code>admin</code></p>
+        <p>كلمة المرور: <code>admin123</code></p>
+      </div>
+      <div class="modal-body">
+        <div class="field">
+          <label for="username">اسم المستخدم</label>
+          <input type="text" id="username" placeholder="أدخل اسم المستخدم">
+        </div>
+        <div class="field">
+          <label for="password">كلمة المرور</label>
+          <input type="password" id="password" placeholder="أدخل كلمة المرور">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn" id="cancelLoginBtn">إلغاء</button>
+        <button class="btn primary" id="confirmLoginBtn">دخول</button>
+      </div>
+    </div>
+  </div>
+  
+  <script src="home.js"></script>
+</body>
+</html>
