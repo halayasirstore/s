@@ -2,8 +2,8 @@
 let products = [
    {
     "id": 1,
-    "name": "صندلة Izmir Premium",
-    "price": 159,
+    "name": "صندلة Hermes Premium",
+    "price": 195,
     "oldPrice": 219,
     "category": "أحذية",
     "img": "https://i.imgur.com/Xxrciy9.jpeg",
@@ -792,4 +792,5 @@ const events = {
 
 // Initialize the app
 document.addEventListener('DOMContentLoaded', events.init);
+
 
