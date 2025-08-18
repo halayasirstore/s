@@ -402,3 +402,4 @@ const events = {
 // Initialize the app
 document.addEventListener('DOMContentLoaded', events.init);
 
+
