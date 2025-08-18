@@ -1,124 +1,19 @@
 // ==== بيانات المنتجات ====
 let products = [
   {
-    id: 1,
-    name: "صندلة Izmir Premium",
-    price: 159,
-    oldPrice: 219,
-    category: "أحذية",
-    img: "https://images.unsplash.com/photo-1544441893-675973e31985?q=80&w=1200&auto=format&fit=crop",
-    images: [
-      "https://images.unsplash.com/photo-1544441893-675973e31985?q=80&w=1200&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1600269452121-4f2416e55c28?q=80&w=1200&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?q=80&w=1200&auto=format&fit=crop"
+    "id": 1,
+    "name": "صندلة Hermes Premium",
+    "price": 195,
+    "oldPrice": 219,
+    "category": "أحذية",
+    "img": "https://i.imgur.com/VJUtvQs.jpeg",
+    "images": [
+      "https://i.imgur.com/VJUtvQs.jpeg",
+      "https://i.imgur.com/JGvrR2X.jpeg",
+      "https://i.imgur.com/Xxrciy9.jpeg"
     ],
-    badge: "الأكثر مبيعاً",
-    desc: "راحة وأناقة في نفس الوقت، خامة ممتازة ومناسبة للمشي اليومي. هذه الصندلة مصنوعة من مواد عالية الجودة توفر الراحة طوال اليوم. تحتوي على نعل داخلي مريح يدعم قوس القدم."
-  },
-  {
-    id: 2,
-    name: "محفظة جلد صغيرة",
-    price: 99,
-    oldPrice: 129,
-    category: "إكسسوارات",
-    img: "https://images.unsplash.com/photo-1585386959984-a41552231658?q=80&w=1200&auto=format&fit=crop",
-    images: [
-      "https://images.unsplash.com/photo-1585386959984-a41552231658?q=80&w=1200&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1585386959984-a41552231658?q=80&w=1200&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1585386959984-a41552231658?q=80&w=1200&auto=format&fit=crop"
-    ],
-    badge: "عرض محدود",
-    desc: "محفظة أنيقة متعددة الجيوب، جلد صناعي عالي الجودة. تحتوي على 6 جيوب لبطاقات الائتمان، جيب للنقود، وجيب شفاف للهوية. تصميم أنيق يناسب جميع المناسبات."
-  },
-  {
-    id: 3,
-    name: "قميص كاجوال",
-    price: 139,
-    oldPrice: 179,
-    category: "ملابس",
-    img: "https://images.unsplash.com/photo-1520975922284-9a0b5e1d9d9b?q=80&w=1200&auto=format&fit=crop",
-    images: [
-      "https://images.unsplash.com/photo-1520975922284-9a0b5e1d9d9b?q=80&w=1200&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1520975916090-3105956ba0d9?q=80&w=1200&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1520975916090-3105956ba0d9?q=80&w=1200&auto=format&fit=crop"
-    ],
-    badge: "جديد",
-    desc: "قميص قطن 100%، تصميم عصري ومريح. يتميز بدرزة عالية الجودة وأزرار متينة. مناسب للارتداء اليومي أو المناسبات شبه الرسمية. متوفر بعدة ألوان."
-  },
-  {
-    id: 4,
-    name: "حذاء رياضي خفيف",
-    price: 199,
-    oldPrice: 249,
-    category: "أحذية",
-    img: "https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1200&auto=format&fit=crop",
-    images: [
-      "https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1200&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1460353581641-37baddab0fa2?q=80&w=1200&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1460353581641-37baddab0fa2?q=80&w=1200&auto=format&fit=crop"
-    ],
-    badge: "شحن مجاني",
-    desc: "خفيف في الرجل ومتين، مناسب للجري والمشي لمسافات طويلة. يحتوي على نعل خارجي مضاد للانزلاق ونعل داخلي ماص للصدمات. شبكة التهوية تحافظ على برودة القدم."
-  },
-  {
-    id: 5,
-    name: "حزام جلد كلاسيكي",
-    price: 89,
-    oldPrice: 119,
-    category: "إكسسوارات",
-    img: "https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?q=80&w=1200&auto=format&fit=crop",
-    images: [
-      "https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?q=80&w=1200&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?q=80&w=1200&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?q=80&w=1200&auto=format&fit=crop"
-    ],
-    badge: "سعر خاص",
-    desc: "حزام عملي بمشبك متين، يناسب أغلب الإطلالات. مصنوع من جلد طبيعي عالي الجودة مع مشبك معدني مقاوم للصدأ. متوفر بعدة ألوان لتناسب مختلف الأذواق."
-  },
-  {
-    id: 6,
-    name: "جاكيت خفيف مقاوم للرياح",
-    price: 229,
-    oldPrice: 299,
-    category: "ملابس",
-    img: "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=1600&auto=format&fit=crop",
-    images: [
-      "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=1600&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1551232864-3f0890e580d9?q=80&w=1200&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1551232864-3f0890e580d9?q=80&w=1200&auto=format&fit=crop"
-    ],
-    badge: "الأكثر طلباً",
-    desc: "يحمي من الهواء مع تهوية ممتازة، خامة مريحة. يحتوي على سحاب أمامي متين وأكمام قابلة للضبط. جيوب متعددة لتخزين الأغراض الشخصية. مثالي للطقس المعتدل."
-  },
-  {
-    id: 7,
-    name: "قبعة كتان صيفية",
-    price: 59,
-    oldPrice: 79,
-    category: "إكسسوارات",
-    img: "https://images.unsplash.com/photo-1615460549969-36fa19521a0c?q=80&w=1200&auto=format&fit=crop",
-    images: [
-      "https://images.unsplash.com/photo-1615460549969-36fa19521a0c?q=80&w=1200&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1615460549969-36fa19521a0c?q=80&w=1200&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1615460549969-36fa19521a0c?q=80&w=1200&auto=format&fit=crop"
-    ],
-    badge: "موصى بها",
-    desc: "قبعة خفيفة تحمي من الشمس وتكمل إطلالتك. مصنوعة من خامة الكتان الطبيعي الذي يوفر التهوية الجيدة. حافة عريضة تحمي الوجه من أشعة الشمس المباشرة."
-  },
-  {
-    id: 8,
-    name: "شبشب منزلي مبطن",
-    price: 69,
-    oldPrice: 99,
-    category: "أحذية",
-    img: "https://images.unsplash.com/photo-1598137235960-c3f0f4b7b1cf?q=80&w=1200&auto=format&fit=crop",
-    images: [
-      "https://images.unsplash.com/photo-1598137235960-c3f0f4b7b1cf?q=80&w=1200&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1598137235960-c3f0f4b7b1cf?q=80&w=1200&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1598137235960-c3f0f4b7b1cf?q=80&w=1200&auto=format&fit=crop"
-    ],
-    badge: "مريح للغاية",
-    desc: "دفء وراحة داخل المنزل، نعل سفلي مانع للإنزلاق. يحتوي على بطانة ناعمة ماصة للرطوبة ونعل خارجي مضاد للانزلاق. مثالي للاستخدام اليومي في المنزل."
+    "badge": "الأكثر مبيعاً",
+    "desc": "راحة وأناقة في نفس الوقت، خامة ممتازة ومناسبة للمشي اليومي. هذه الصندلة مصنوعة من مواد عالية الجودة توفر الراحة طوال اليوم. تحتوي على نعل داخلي مريح يدعم قوس القدم."
   }
 ];
 
@@ -490,3 +385,4 @@ const events = {
 
 // Initialize the app
 document.addEventListener('DOMContentLoaded', events.init);
+
