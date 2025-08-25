@@ -1,281 +1,727 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <meta name="description" content="متجر هلا ياسر - منتجات عالية الجودة بأسعار مناسبة مع خدمة التوصيل في جميع أنحاء المغرب">
-  <title>هلا ياسر – متجر المنتجات</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صندلة Hermes Premium</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 20px 0;
+            background: linear-gradient(90deg, #ff0202 0%, #ff9100 100%);
+            color: white;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .product-showcase {
+            flex: 1;
+            min-width: 300px;
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        .product-title {
+            font-size: 1.8rem;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #eee;
+        }
+        
+        .product-gallery {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .main-product {
+            width: 100%;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+        
+        .main-product:hover {
+            transform: scale(1.02);
+        }
+        
+        .product-thumbnails {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+        
+        .thumbnail {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 5px;
+            cursor: pointer;
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+        
+        .thumbnail:hover, .thumbnail.active {
+            opacity: 1;
+            transform: scale(1.1);
+            border: 2px solid #4ca1af;
+        }
+        
+        .order-form {
+            flex: 1;
+            min-width: 300px;
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        .form-title {
+            font-size: 1.8rem;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #eee;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        input, select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 16px;
+            transition: border 0.3s ease;
+            text-align: right;
+            direction: ltr;
+        }
+        
+        #phone {
+            text-align: right;
+            direction: ltr;
+            font-family: monospace;
+            font-size: 18px;
+            letter-spacing: 1px;
+        }
+        
+        input:focus, select:focus {
+            border-color: #4ca1af;
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(76, 161, 175, 0.2);
+        }
+        
+        .color-options {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .color-option {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 3px solid transparent;
+            transition: all 0.3s ease;
+        }
+        
+        .color-option.selected {
+            border-color: #2c3e50;
+            transform: scale(1.1);
+        }
+        
+        .color-brown {
+            background-color: #8B4513;
+        }
+        
+        .color-black {
+            background-color: #000;
+        }
+        
+        .color-blue {
+            background-color: #13153d; /* Navy blue */
+        }
+        
+        .size-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .size-option {
+            width: 50px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .size-option:hover {
+            border-color: #4ca1af;
+            background-color: #f8f9fa;
+        }
+        
+        .size-option.selected {
+            background-color: #4ca1af;
+            color: white;
+            border-color: #4ca1af;
+        }
+        
+        .btn-group {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .whatsapp-btn, .sheets-btn {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .whatsapp-btn {
+            background-color: #25D366;
+            color: white;
+        }
+        
+        .whatsapp-btn:hover {
+            background-color: #128C7E;
+        }
+        
+        .sheets-btn {
+            background-color: #4285F4;
+            color: white;
+        }
+        
+        .sheets-btn:hover {
+            background-color: #3367D6;
+        }
+        
+        .whatsapp-btn i, .sheets-btn i {
+            margin-left: 10px;
+        }
+        
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        
+        .feature {
+            flex: 1;
+            min-width: 250px;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        .feature i {
+            font-size: 2.5rem;
+            color: #4ca1af;
+            margin-bottom: 15px;
+        }
+        
+        .feature h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #2c3e50;
+            color: white;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        
+        .arabic-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            text-align: center;
+            margin: 20px 0;
+            padding: 15px;
+            background: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .phone-format {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 5px;
+            text-align: right;
+        }
+        
+        .loading {
+            display: none;
+            text-align: center;
+            margin: 10px 0;
+            color: #4ca1af;
+        }
+        
+        .success-message {
+            display: none;
+            background-color: #d4edda;
+            color: #155724;
+            padding: 12px;
+            border-radius: 5px;
+            margin-top: 15px;
+            text-align: center;
+        }
+        
+        .error-message {
+            display: none;
+            background-color: #f8d7da;
+            color: #721c24;
+            padding: 12px;
+            border-radius: 5px;
+            margin-top: 15px;
+            text-align: center;
+        }
+        
+        .setup-instructions {
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+            color: #856404;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .content {
+                flex-direction: column;
+                gap: 20px;
+                margin-bottom: 30px;
+                padding: 0 10px;
+            }
+            
+            .product-showcase, .order-form {
+                min-width: 100%;
+                width: 100%;
+                margin-bottom: 20px;
+            }
+            
+            .color-options, .size-options {
+                justify-content: center;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .product-title, .form-title {
+                font-size: 1.5rem;
+                text-align: center;
+            }
+            
+            .thumbnail {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .arabic-text {
+                padding: 10px;
+                margin: 15px 0;
+            }
+            
+            .feature {
+                min-width: 100%;
+                margin-bottom: 15px;
+            }
+            
+            .btn-group {
+                flex-direction: column;
+            }
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <div class="container nav">
-      <a class="logo" href="index.html">
-        <span class="logo-badge" aria-hidden="true">
-          <img src="https://i.imgur.com/uT3qEVr.png" alt="Logo هلا ياسر" style="width: 45px; height: 45px;">
-        </span>
-        <span>هلا ياســــــــر</span>
-      </a>
-      <div class="nav-actions">
-        <a href="cart.html" class="btn">
-          <i class="fas fa-shopping-cart"></i>
-          <span id="cartCount">0</span>
-        </a>
-      </div>
-    </div>
-  </header>
-  <main class="container">
-    <!-- Product Listing Page -->
-    <div id="productListing">
-      <!-- Hero -->
-      <section class="hero">
-        <div class="hero-card">
-          <div class="chip">
-            <i class="fas fa-truck"></i>
-            توصيل مجاني داخل المغرب • الدفع عند الإستلام
-          </div>
-          <h1>منتجات مختارة بجودة عالية وأسعار مناسبة</h1>
-          <p>إختر منتجك المفضل، أضفه للسلة، وأكمل الطلب بخطوات بسيطة. نخدمو جميع المدن المغربية.</p>
-          <div class="cta">
-            <a href="#shop" class="btn primary">
-              <i class="fas fa-shopping-bag"></i>
-              تسوق الآن
-            </a>
-            <a href="cart.html" class="btn">
-              <i class="fas fa-shopping-cart"></i>
-              سلة المشتريات
-            </a>
-          </div>
-        </div>
-        <div class="hero-banner">
-          <img alt="عرض المتجر" src="https://i.imgur.com/iYaaTnu.png" loading="lazy"/>
-        </div>
-      </section>
-      <!-- Toolbar -->
-      <section class="toolbar" id="shop">
-        <div class="input" style="flex:2">
-          <i class="fas fa-search"></i>
-          <input id="searchInput" placeholder="إبحث عن منتج…" aria-label="بحث عن منتج" />
-        </div>
-        <div class="filters">
-          <button class="pill active" data-cat="all">الكل</button>
-          <button class="pill" data-cat="أحذية">أحذية</button>
-          <button class="pill" data-cat="إكسسوارات">إكسسوارات</button>
-          <button class="pill" data-cat="ملابس">ملابس</button>
-           <button class="pill" data-cat="العطر">العطر</button>
-          
-        </div>
-      </section>
-      <!-- Products Grid -->
-      <section class="grid" id="productsGrid"></section>
-      
-      <p class="muted" style="margin-top:16px" id="storeInfo">
-        <i class="fas fa-info-circle"></i> الدفع عند الإستلام • التوصيل 24-72 ساعة حسب المدينة
-      </p>
-    </div>
-    
-    <!-- Admin Panel -->
-    <div id="adminPanel" class="admin-panel">
-      <div class="admin-header">
-        <h2><i class="fas fa-lock"></i> لوحة تحكم المشرف</h2>
-        <div>
-          <button class="btn" id="logoutBtn">
-            <i class="fas fa-sign-out-alt"></i>
-            تسجيل الخروج
-          </button>
-        </div>
-      </div>
-      
-      <div class="admin-access-info">
-        <h3>معلومات الوصول للوحة التحكم</h3>
-        <p>للوصول إلى لوحة تحكم المشرف، أضف <code>?admin</code> إلى نهاية رابط المتجر</p>
-        <p>مثال: <code>https://yourstore.com?admin</code></p>
-      </div>
-      
-      <div class="admin-tabs">
-        <div class="admin-tab active" data-tab="dashboard">الرئيسية</div>
-        <div class="admin-tab" data-tab="products">المنتجات</div>
-        <div class="admin-tab" data-tab="add">إضافة منتج</div>
-      </div>
-      
-      <div id="adminDashboard" class="admin-content active">
-        <div class="stats-container">
-          <div class="stat-card">
-            <div class="stat-label">عدد المنتجات</div>
-            <div class="stat-value" id="totalProducts">0</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-label">الطلبات اليوم</div>
-            <div class="stat-value" id="todayOrders">0</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-label">الإيرادات</div>
-            <div class="stat-value" id="revenue">0 درهم</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-label">الزوار</div>
-            <div class="stat-value" id="visitors">0</div>
-          </div>
-        </div>
-        
-        <div class="admin-form">
-          <div class="form-title">إجراءات سريعة</div>
-          <div class="dashboard-actions">
-            <button class="btn primary" id="exportProducts">
-              <i class="fas fa-download"></i>
-              تصدير المنتجات
-            </button>
-            <button class="btn success" id="importProducts">
-              <i class="fas fa-upload"></i>
-              استيراد المنتجات
-            </button>
-            <button class="btn warning" id="backupData">
-              <i class="fas fa-database"></i>
-              نسخ احتياطي
-            </button>
-          </div>
-        </div>
-      </div>
-      
-      <div id="adminProducts" class="admin-content">
-        <div class="admin-search">
-          <div class="input">
-            <i class="fas fa-search"></i>
-            <input id="adminSearchInput" placeholder="بحث عن منتج..." />
-          </div>
-          <button class="btn primary" id="addNewProduct">
-            <i class="fas fa-plus"></i>
-            إضافة منتج
-          </button>
-        </div>
-        
-        <table class="admin-table">
-          <thead>
-            <tr>
-              <th>الصورة</th>
-              <th>الاسم</th>
-              <th>الفئة</th>
-              <th>السعر</th>
-              <th>السعر القديم</th>
-              <th>الإجراءات</th>
-            </tr>
-          </thead>
-          <tbody id="adminProductsList"></tbody>
-        </table>
-      </div>
-      
-      <div id="adminAddProduct" class="admin-content">
-        <div class="admin-form">
-          <div class="form-title" id="formTitle">إضافة منتج جديد</div>
-          <div class="form-grid">
-            <div class="field">
-              <label for="adminName">اسم المنتج</label>
-              <input type="text" id="adminName" placeholder="اسم المنتج">
-            </div>
-            <div class="field">
-              <label for="adminCategory">الفئة</label>
-              <select id="adminCategory">
-                <option value="أحذية">أحذية</option>
-                <option value="إكسسوارات">إكسسوارات</option>
-                <option value="ملابس">ملابس</option>
-                 <option value="العطر">العطر</option>
-              </select>
-            </div>
-            <div class="field">
-              <label for="adminPrice">السعر (درهم)</label>
-              <input type="number" id="adminPrice" placeholder="السعر">
-            </div>
-            <div class="field">
-              <label for="adminOldPrice">السعر القديم (اختياري)</label>
-              <input type="number" id="adminOldPrice" placeholder="السعر القديم">
-            </div>
-            <div class="field">
-              <label for="adminBadge">علامة مميزة (اختياري)</label>
-              <input type="text" id="adminBadge" placeholder="مثل: الأكثر مبيعاً">
-            </div>
-            <div class="field" style="grid-column: 1 / -1;">
-              <label>صور المنتج</label>
-              <div class="image-uploader">
-                <input type="file" id="adminImageUpload" accept="image/*" multiple>
-                <div class="image-preview" id="imagePreview">
-                  <div class="image-preview-placeholder">
-                    <i class="fas fa-cloud-upload-alt"></i>
-                    <div>اختر صورة أو اسحبها هنا</div>
-                  </div>
-                </div>
-              </div>
-              <div class="url-input-group">
-                <input type="text" id="adminImageUrl" placeholder="أو أدخل رابط الصورة" class="input">
-                <button class="btn primary" id="addImageUrlBtn">
-                  <i class="fas fa-plus"></i>
-                </button>
-              </div>
-              <div class="product-images-manager" id="productImagesManager"></div>
-            </div>
-            <div class="field" style="grid-column: 1 / -1;">
-              <label for="adminDesc">وصف المنتج</label>
-              <textarea id="adminDesc" rows="3" placeholder="وصف المنتج"></textarea>
-            </div>
-          </div>
-          <div style="margin-top:20px">
-            <button class="btn primary" id="saveProductBtn">
-              <i class="fas fa-save"></i>
-              حفظ المنتج
-            </button>
-            <button class="btn" id="cancelEditBtn" style="display:none;">
-              <i class="fas fa-times"></i>
-              إلغاء
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </main>
-  
-  <footer class="footer">
     <div class="container">
-      © <span id="year"></span> هلا ياسر – جميع الحقوق محفوظة  
-      
-      </a>
-    </div>
-  </footer>
-  
-  <!-- Login Modal -->
-  <div class="modal" id="loginModal">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h2>تسجيل دخول المشرف</h2>
-        <p>الرجاء إدخال اسم المستخدم وكلمة المرور للوصول إلى لوحة التحكم</p>
-      </div>
-      <div class="login-info">
-        <h3>معلومات الدخول الافتراضية</h3>
-        <p>اسم المستخدم: <code>admin</code></p>
-        <p>كلمة المرور: <code>admin123</code></p>
-      </div>
-      <div class="modal-body">
-        <div class="field">
-          <label for="username">اسم المستخدم</label>
-          <input type="text" id="username" placeholder="أدخل اسم المستخدم">
+        <header>
+            <h1>هلا ياســــــــر</h1>
+            <p class="tagline">الرفاهية والراحة في كل خطوة</p>
+        </header>
+
+          <div class="order-form">
+                <h2 class="form-title">اطلب الآن</h2>
+                <form id="order-form">
+                    <div class="form-group">
+                        <label for="name">الاسم الكامل</label>
+                        <input type="text" id="name" placeholder="أدخل اسمك الكامل" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="address">عنوان الشحن</label>
+                        <input type="text" id="address" placeholder="أدخل عنوانك الكامل" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">رقم الهاتف</label>
+                        <input type="tel" id="phone" placeholder="أدخل رقم هاتفك" required 
+                               pattern="[0-9]{10,13}" 
+                               title="يرجى إدخال رقم هاتف صحيح بين 10 و 13 رقم">
+                        <div class="phone-format">يجب أن يكون الرقم بين 10 و 13 رقم (أرقام فقط)</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>اختر اللون</label>
+                        <div class="color-options">
+                            <div class="color-option color-brown selected" data-color="بني"></div>
+                            <div class="color-option color-black" data-color="أسود"></div>
+                            <div class="color-option color-blue" data-color="أزرق داكن"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>اختر المقاس</label>
+                        <div class="size-options">
+                            <div class="size-option" data-size="40">40</div>
+                            <div class="size-option" data-size="41">41</div>
+                            <div class="size-option" data-size="42">42</div>
+                            <div class="size-option" data-size="43">43</div>
+                            <div class="size-option" data-size="44">44</div>
+                            <div class="size-option" data-size="45">45</div>
+                        </div>
+                    </div>
+                    
+                    <div class="loading" id="loading">
+                        <i class="fas fa-spinner fa-spin"></i> جاري إرسال البيانات...
+                    </div>
+                    
+                    <div class="success-message" id="success-message">
+                        <i class="fas fa-check-circle"></i> تم إرسال البيانات بنجاح!
+                    </div>
+                    
+                    <div class="error-message" id="error-message">
+                        <i class="fas fa-exclamation-circle"></i> حدث خطأ أثناء الإرسال. يرجى المحاولة مرة أخرى.
+                    </div>
+                    
+                    <div class="btn-group">
+                         <button type="button"     class="sheets-btn" id="send-sheets">
+                            اشتري الان <i class="fas fa-store"></i>
+                        </button>
+                    
+                        <button type="button" class="whatsapp-btn" id="send-whatsapp">
+                            إرسال عبر واتساب <i class="fab fa-whatsapp"></i>
+                        </button>
+                       
+                    </div>
+                </form>
+            </div>
         </div>
-        <div class="field">
-          <label for="password">كلمة المرور</label>
-          <input type="password" id="password" placeholder="أدخل كلمة المرور">
+        
+       
+        
+        <div class="content">
+            <div class="product-showcase">
+                <h2 class="product-title">صندلة Hermes Premium</h2>
+                <div class="product-gallery">
+                    <img src="https://i.imgur.com/JGvrR2X.jpeg" alt="صندلة Hermes Premium" class="main-product" id="main-product">
+                    <div class="product-thumbnails">
+                        <img src="https://i.imgur.com/JGvrR2X.jpeg" alt="صورة مصغرة 1" class="thumbnail active" data-img="https://i.imgur.com/JGvrR2X.jpeg">
+                        <img src="https://i.imgur.com/Xxrciy9.jpeg" alt="صورة مصغرة 2" class="thumbnail" data-img="https://i.imgur.com/Xxrciy9.jpeg">
+                        <img src="https://i.imgur.com/VJUtvQs.jpeg" alt="صورة مصغرة 3" class="thumbnail" data-img="https://i.imgur.com/VJUtvQs.jpeg">
+                    </div>
+                </div>
+            </div>
+            
+          
+     
+        
+        <div class="features">
+            <div class="feature">
+                <i class="fas fa-truck"></i>
+                <h3>شحن مجاني</h3>
+                <p>توصيل مجاني لجميع المدن المغربية</p>
+                
+            </div>
+            <div class="feature">
+                <i class="fas fa-undo"></i>
+                <h3>إرجاع فوري</h3>
+                <p>إذا لم تكن راضيًا، يمكنك الإرجاعها فورا</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-shield-alt"></i>
+                <h3>دفع آمن</h3>
+                <p>جميع المعاملات مؤمنة ومشفرة</p>
+            </div>
         </div>
-      </div>
-      <div class="modal-footer">
-        <button class="btn" id="cancelLoginBtn">إلغاء</button>
-        <button class="btn primary" id="confirmLoginBtn">دخول</button>
-      </div>
+        
+        <footer>
+            <p>© 2025 مجموعة الأحذية الفاخرة. جميع الحقوق محفوظة.</p>
+        </footer>
     </div>
-  </div>
-  
-  <script src="home.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Thumbnail selection
+            const thumbnails = document.querySelectorAll('.thumbnail');
+            const mainProduct = document.getElementById('main-product');
+            
+            thumbnails.forEach(thumb => {
+                thumb.addEventListener('click', function() {
+                    // Update main image
+                    mainProduct.src = this.getAttribute('data-img');
+                    
+                    // Update active thumbnail
+                    thumbnails.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+            
+            // Color selection
+            const colorOptions = document.querySelectorAll('.color-option');
+            let selectedColor = 'بني';
+            
+            colorOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    colorOptions.forEach(o => o.classList.remove('selected'));
+                    this.classList.add('selected');
+                    selectedColor = this.getAttribute('data-color');
+                });
+            });
+            
+            // Size selection
+            const sizeOptions = document.querySelectorAll('.size-option');
+            let selectedSize = null;
+            
+            sizeOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    sizeOptions.forEach(o => o.classList.remove('selected'));
+                    this.classList.add('selected');
+                    selectedSize = this.getAttribute('data-size');
+                });
+            });
+            
+            // Phone number input handling
+            const phoneInput = document.getElementById('phone');
+            
+            phoneInput.addEventListener('input', function() {
+                // Remove any non-digit characters
+                this.value = this.value.replace(/\D/g, '');
+                
+                // Ensure cursor stays at the end (right side)
+                const len = this.value.length;
+                this.setSelectionRange(len, len);
+            });
+            
+            phoneInput.addEventListener('keydown', function(e) {
+                // Allow only numbers and control keys
+                if (!/[\d\b\t]/.test(e.key) && 
+                    !(e.ctrlKey || e.metaKey) && 
+                    e.key !== 'ArrowLeft' && e.key !== 'ArrowRight' &&
+                    e.key !== 'Delete' && e.key !== 'Backspace') {
+                    e.preventDefault();
+                }
+            });
+            
+            // WhatsApp button click handler
+            document.getElementById('send-whatsapp').addEventListener('click', function() {
+                const name = document.getElementById('name').value;
+                const address = document.getElementById('address').value;
+                const phone = document.getElementById('phone').value;
+                
+                if (!name || !address || !phone || !selectedSize) {
+                    alert('يرجى ملء جميع الحقول واختيار المقاس قبل الإرسال.');
+                    return;
+                }
+                
+                // Validate phone number
+                const phoneRegex = /^[0-9]{10,13}$/;
+                if (!phoneRegex.test(phone)) {
+                    alert('يرجى إدخال رقم هاتف صحيح بين 10 و 13 رقم');
+                    return;
+                }
+                
+                // Prepare data
+                const formData = {
+                    name: name,
+                    address: address,
+                    phone: phone,
+                    color: selectedColor,
+                    size: selectedSize,
+                    product: 'صندلة Hermes Premium',
+                    price: '159DH',
+                    timestamp: new Date().toLocaleString('ar-MA')
+                };
+                
+                // Send WhatsApp message
+                sendWhatsAppMessage(formData);
+            });
+            
+            // Google Sheets button click handler
+            document.getElementById('send-sheets').addEventListener('click', function() {
+                const name = document.getElementById('name').value;
+                const address = document.getElementById('address').value;
+                const phone = document.getElementById('phone').value;
+                
+                if (!name || !address || !phone || !selectedSize) {
+                    alert('يرجى ملء جميع الحقول واختيار المقاس قبل الإرسال.');
+                    return;
+                }
+                
+                // Validate phone number
+                const phoneRegex = /^[0-9]{10,13}$/;
+                if (!phoneRegex.test(phone)) {
+                    alert('يرجى إدخال رقم هاتف صحيح بين 10 و 13 رقم');
+                    return;
+                }
+                
+                // Show loading
+                document.getElementById('loading').style.display = 'block';
+                document.getElementById('success-message').style.display = 'none';
+                document.getElementById('error-message').style.display = 'none';
+                
+                // Prepare data
+                const formData = {
+                    name: name,
+                    address: address,
+                    phone: phone,
+                    color: selectedColor,
+                    size: selectedSize,
+                    product: 'صندلة Hermes Premium',
+                    price: '159DH',
+                    timestamp: new Date().toLocaleString('ar-MA')
+                };
+                
+                // Send data to Google Sheets
+                sendToGoogleSheets(formData);
+            });
+            
+            // Function to send WhatsApp message
+            function sendWhatsAppMessage(data) {
+                // Create message with actual newlines instead of URL-encoded characters
+                const message = `طلب جديد:\n\nالاسم: ${data.name}\nالعنوان: ${data.address}\nالهاتف: ${data.phone}\nاللون: ${data.color}\nالمقاس: ${data.size}\nالمنتج: ${data.product}\nالسعر: ${data.price}`;
+                
+                // Encode the entire message once
+                const whatsappUrl = `https://wa.me/212772612720?text=${encodeURIComponent(message)}`;
+                
+                window.open(whatsappUrl, '_blank');
+            }
+            
+            // Function to send data to Google Sheets
+            function sendToGoogleSheets(data) {
+                // Using a more reliable method with Google Apps Script
+                const googleScriptURL = 'https://script.google.com/macros/s/AKfycbxZM0wlTBCwLxDrhtKAiOVtAlPLX5VlE4tup3dZLtm4JcOcQv7SKLnlI4BxV9Ifem6tsg/exec';
+                
+                // Create a hidden form to submit data
+                const form = document.createElement('form');
+                form.method = 'POST';
+                form.action = googleScriptURL;
+                form.target = 'hidden_iframe';
+                
+                // Add input fields for each data point
+                Object.keys(data).forEach(key => {
+                    const input = document.createElement('input');
+                    input.type = 'hidden';
+                    input.name = key;
+                    input.value = data[key];
+                    form.appendChild(input);
+                });
+                
+                // Create a hidden iframe to handle the response
+                const iframe = document.createElement('iframe');
+                iframe.name = 'hidden_iframe';
+                iframe.style.display = 'none';
+                document.body.appendChild(iframe);
+                
+                // Add the form to the document and submit it
+                document.body.appendChild(form);
+                form.submit();
+                
+                // Show success message after a short delay
+                setTimeout(() => {
+                    document.getElementById('loading').style.display = 'none';
+                    document.getElementById('success-message').style.display = 'block';
+                    
+                    // Reset form after 2 seconds
+                    setTimeout(() => {
+                        document.getElementById('order-form').reset();
+                        document.getElementById('success-message').style.display = 'none';
+                        
+                        // Reset color and size selections
+                        colorOptions.forEach(o => o.classList.remove('selected'));
+                        document.querySelector('.color-brown').classList.add('selected');
+                        selectedColor = 'بني';
+                        
+                        sizeOptions.forEach(o => o.classList.remove('selected'));
+                        selectedSize = null;
+                        
+                        // Clean up the form and iframe
+                        document.body.removeChild(form);
+                        document.body.removeChild(iframe);
+                    }, 2000);
+                }, 1000);
+            }
+        });
+    </script>
 </body>
-
 </html>
-
-
-
-
