@@ -46,11 +46,25 @@
             opacity: 0.9;
         }
         
-        .content {
+        .main-container {
             display: flex;
             flex-wrap: wrap;
             gap: 30px;
             margin-bottom: 40px;
+        }
+        
+        .content {
+            flex: 2;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        
+        .features {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
         }
         
         .product-showcase {
@@ -261,33 +275,33 @@
             margin-left: 10px;
         }
         
-        .features {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            margin-bottom: 40px;
-        }
-        
         .feature {
-            flex: 1;
-            min-width: 250px;
             background: white;
-            padding: 25px;
+            padding: 15px;
             border-radius: 10px;
             text-align: center;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .feature:hover {
+            transform: translateY(-5px);
         }
         
         .feature i {
-            font-size: 2.5rem;
+            font-size: 1.8rem;
             color: #4ca1af;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
         }
         
         .feature h3 {
-            font-size: 1.4rem;
-            margin-bottom: 10px;
+            font-size: 1.2rem;
+            margin-bottom: 8px;
             color: #2c3e50;
+        }
+        
+        .feature p {
+            font-size: 0.9rem;
         }
         
         footer {
@@ -355,6 +369,29 @@
             font-size: 0.9rem;
         }
         
+        @media (max-width: 992px) {
+            .main-container {
+                flex-direction: column;
+            }
+            
+            .content, .features {
+                flex: 1 0 100%;
+            }
+            
+            .features {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                gap: 15px;
+                justify-content: center;
+            }
+            
+            .feature {
+                flex: 1 0 30%;
+                min-width: 150px;
+            }
+        }
+        
         @media (max-width: 768px) {
             .content {
                 flex-direction: column;
@@ -392,13 +429,17 @@
                 margin: 15px 0;
             }
             
-            .feature {
-                min-width: 100%;
-                margin-bottom: 15px;
-            }
-            
             .btn-group {
                 flex-direction: column;
+            }
+            
+            .features {
+                flex-direction: column;
+            }
+            
+            .feature {
+                flex: 1 0 100%;
+                margin-bottom: 15px;
             }
         }
     </style>
@@ -409,111 +450,110 @@
             <h1>هلا ياســــــــر</h1>
             <p class="tagline">الرفاهية والراحة في كل خطوة</p>
         </header>
+        
 
-          <div class="order-form">
-                <h2 class="form-title">اطلب الآن</h2>
-                <form id="order-form">
-                    <div class="form-group">
-                        <label for="name">الاسم الكامل</label>
-                        <input type="text" id="name" placeholder="أدخل اسمك الكامل" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="address">عنوان الشحن</label>
-                        <input type="text" id="address" placeholder="أدخل عنوانك الكامل" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="phone">رقم الهاتف</label>
-                        <input type="tel" id="phone" placeholder="أدخل رقم هاتفك" required 
-                               pattern="[0-9]{10,13}" 
-                               title="يرجى إدخال رقم هاتف صحيح بين 10 و 13 رقم">
-                        <div class="phone-format">يجب أن يكون الرقم بين 10 و 13 رقم (أرقام فقط)</div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label>اختر اللون</label>
-                        <div class="color-options">
-                            <div class="color-option color-brown selected" data-color="بني"></div>
-                            <div class="color-option color-black" data-color="أسود"></div>
-                            <div class="color-option color-blue" data-color="أزرق داكن"></div>
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label>اختر المقاس</label>
-                        <div class="size-options">
-                            <div class="size-option" data-size="40">40</div>
-                            <div class="size-option" data-size="41">41</div>
-                            <div class="size-option" data-size="42">42</div>
-                            <div class="size-option" data-size="43">43</div>
-                            <div class="size-option" data-size="44">44</div>
-                            <div class="size-option" data-size="45">45</div>
-                        </div>
-                    </div>
-                    
-                    <div class="loading" id="loading">
-                        <i class="fas fa-spinner fa-spin"></i> جاري إرسال البيانات...
-                    </div>
-                    
-                    <div class="success-message" id="success-message">
-                        <i class="fas fa-check-circle"></i> تم إرسال البيانات بنجاح!
-                    </div>
-                    
-                    <div class="error-message" id="error-message">
-                        <i class="fas fa-exclamation-circle"></i> حدث خطأ أثناء الإرسال. يرجى المحاولة مرة أخرى.
-                    </div>
-                    
-                    <div class="btn-group">
-                         <button type="button"     class="sheets-btn" id="send-sheets">
-                            اشتري الان <i class="fas fa-store"></i>
-                        </button>
-                    
-                        <button type="button" class="whatsapp-btn" id="send-whatsapp">
-                            إرسال عبر واتساب <i class="fab fa-whatsapp"></i>
-                        </button>
-                       
-                    </div>
-                </form>
-            </div>
-        </div>
         
-       
-        
-        <div class="content">
-            <div class="product-showcase">
-                <h2 class="product-title">صندلة Hermes Premium</h2>
-                <div class="product-gallery">
-                    <img src="https://i.imgur.com/JGvrR2X.jpeg" alt="صندلة Hermes Premium" class="main-product" id="main-product">
-                    <div class="product-thumbnails">
-                        <img src="https://i.imgur.com/JGvrR2X.jpeg" alt="صورة مصغرة 1" class="thumbnail active" data-img="https://i.imgur.com/JGvrR2X.jpeg">
-                        <img src="https://i.imgur.com/Xxrciy9.jpeg" alt="صورة مصغرة 2" class="thumbnail" data-img="https://i.imgur.com/Xxrciy9.jpeg">
-                        <img src="https://i.imgur.com/VJUtvQs.jpeg" alt="صورة مصغرة 3" class="thumbnail" data-img="https://i.imgur.com/VJUtvQs.jpeg">
-                    </div>
+        <div class="main-container">
+            <div class="content">
+ <div class="order-form">
+                    <h2 class="form-title">اطلب الآن</h2>
+                    <form id="order-form">
+                        <div class="form-group">
+                            <label for="name">الاسم الكامل</label>
+                            <input type="text" id="name" placeholder="أدخل اسمك الكامل" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="address">عنوان الشحن</label>
+                            <input type="text" id="address" placeholder="أدخل عنوانك الكامل" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">رقم الهاتف</label>
+                            <input type="tel" id="phone" placeholder="أدخل رقم هاتفك" required 
+                                   pattern="[0-9]{10,13}" 
+                                   title="يرجى إدخال رقم هاتف صحيح بين 10 و 13 رقم">
+                            <div class="phone-format">يجب أن يكون الرقم بين 10 و 13 رقم (أرقام فقط)</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>اختر اللون</label>
+                            <div class="color-options">
+                                <div class="color-option color-brown selected" data-color="بني"></div>
+                                <div class="color-option color-black" data-color="أسود"></div>
+                                <div class="color-option color-blue" data-color="أزرق داكن"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>اختر المقاس</label>
+                            <div class="size-options">
+                                <div class="size-option" data-size="40">40</div>
+                                <div class="size-option" data-size="41">41</div>
+                                <div class="size-option" data-size="42">42</div>
+                                <div class="size-option" data-size="43">43</div>
+                                <div class="size-option" data-size="44">44</div>
+                                <div class="size-option" data-size="45">45</div>
+                            </div>
+                        </div>
+                        
+                        <div class="loading" id="loading">
+                            <i class="fas fa-spinner fa-spin"></i> جاري إرسال البيانات...
+                        </div>
+                        
+                        <div class="success-message" id="success-message">
+                            <i class="fas fa-check-circle"></i> تم إرسال البيانات بنجاح!
+                        </div>
+                        
+                        <div class="error-message" id="error-message">
+                            <i class="fas fa-exclamation-circle"></i> حدث خطأ أثناء الإرسال. يرجى المحاولة مرة أخرى.
+                        </div>
+                        
+                        <div class="btn-group">
+                            <button type="button" class="sheets-btn" id="send-sheets">
+                                اشتري الان <i class="fas fa-store"></i>
+                            </button>
+                            <button type="button" class="whatsapp-btn" id="send-whatsapp">
+                                إرسال عبر واتساب <i class="fab fa-whatsapp"></i>
+                            </button>
+                        </div>
+                    </form>
                 </div>
             </div>
-            
-          
-     
-        
-        <div class="features">
-            <div class="feature">
-                <i class="fas fa-truck"></i>
-                <h3>شحن مجاني</h3>
-                <p>توصيل مجاني لجميع المدن المغربية</p>
+
+                <div class="product-showcase">
+                    <h2 class="product-title">صندلة Hermes Premium</h2>
+                    <div class="product-gallery">
+                        <img src="https://i.imgur.com/JGvrR2X.jpeg" alt="صندلة Hermes Premium" class="main-product" id="main-product">
+                        <div class="product-thumbnails">
+                            <img src="https://i.imgur.com/JGvrR2X.jpeg" alt="صورة مصغرة 1" class="thumbnail active" data-img="https://i.imgur.com/JGvrR2X.jpeg">
+                            <img src="https://i.imgur.com/Xxrciy9.jpeg" alt="صورة مصغرة 2" class="thumbnail" data-img="https://i.imgur.com/Xxrciy9.jpeg">
+                            <img src="https://i.imgur.com/VJUtvQs.jpeg" alt="صورة مصغرة 3" class="thumbnail" data-img="https://i.imgur.com/VJUtvQs.jpeg">
+                        </div>
+                    </div>
+                </div>
                 
-            </div>
-            <div class="feature">
-                <i class="fas fa-undo"></i>
-                <h3>إرجاع فوري</h3>
-                <p>إذا لم تكن راضيًا، يمكنك الإرجاعها فورا</p>
-            </div>
-            <div class="feature">
-                <i class="fas fa-shield-alt"></i>
-                <h3>دفع آمن</h3>
-                <p>جميع المعاملات مؤمنة ومشفرة</p>
+               
+            
+            <div class="features">
+                <div class="feature">
+                    <i class="fas fa-truck"></i>
+                    <h3>شحن مجاني</h3>
+                    <p>توصيل مجاني لجميع المدن المغربية</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-undo"></i>
+                    <h3>إرجاع فوري</h3>
+                    <p>إذا لم تكن راضيًا، يمكنك الإرجاعها فورا</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>دفع آمن</h3>
+                    <p>جميع المعاملات مؤمنة ومشفرة</p>
+                </div>
             </div>
         </div>
+        
         
         <footer>
             <p>© 2025 مجموعة الأحذية الفاخرة. جميع الحقوق محفوظة.</p>
